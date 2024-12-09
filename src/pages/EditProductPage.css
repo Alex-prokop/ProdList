@@ -1,0 +1,116 @@
+.edit-product {
+  max-width: 600px;
+  margin: 40px auto;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 28px;
+  color: #f39c12;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.edit-product-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+label {
+  font-size: 16px;
+  color: #f39c12;
+}
+
+input,
+textarea {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background-color: #222;
+  color: white;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #f39c12;
+  outline: none;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.save-button,
+.cancel-button {
+  padding: 10px 16px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.save-button {
+  background-color: #f39c12;
+  color: white;
+}
+
+.save-button:hover {
+  background-color: #e67e22;
+}
+
+.cancel-button {
+  background-color: #555;
+  color: white;
+}
+
+.cancel-button:hover {
+  background-color: #777;
+}
+
+.loading {
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  margin: 20px;
+}
+
+.error,
+.not-found {
+  color: white;
+  text-align: center;
+}
+
+.error h2,
+.not-found h2 {
+  color: #e74c3c;
+}
+
+.back-button {
+  margin-top: 20px;
+  background-color: transparent;
+  color: #f39c12;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.back-button:hover {
+  color: white;
+}
