@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './ProductCard.css';
 
 interface ProductCardProps {
@@ -11,7 +11,6 @@ interface ProductCardProps {
   isFavorite: boolean;
   onLike: (id: number) => void;
   onDelete: (id: number) => void;
-  onClick: (id: number) => void;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
@@ -19,14 +18,14 @@ const ProductCard: React.FC<ProductCardProps> = ({
   isFavorite,
   onLike,
   onDelete,
-  onClick,
 }) => {
   const { id, title, description, image } = product;
+  const navigate = useNavigate();
 
   return (
     <div
       className="product-card"
-      onClick={() => onClick(id)}
+      onClick={() => navigate(`/product/${id}`)}
       style={{ cursor: 'pointer' }}>
       <div className="card-image">
         <img src={image} alt={title} />
@@ -51,13 +50,14 @@ const ProductCard: React.FC<ProductCardProps> = ({
             }}>
             🗑️
           </button>
-          <Link to={`/edit-product/${id}`}>
-            <button
-              className="edit-button"
-              onClick={(e) => e.stopPropagation()}>
-              ✏️ Edit
-            </button>
-          </Link>
+          <button
+            className="edit-button"
+            onClick={(e) => {
+              e.stopPropagation();
+              navigate(`/edit-product/${id}`);
+            }}>
+            ✏️ Edit
+          </button>
         </div>
       </div>
     </div>

@@ -82,9 +82,6 @@ const ProductsPage: React.FC = () => {
             isFavorite={favorites.includes(product.id)}
             onLike={(id) => dispatch(toggleLike(id))}
             onDelete={(id) => handleDelete(id)}
-            onClick={(id) => {
-              window.location.href = `/product/${id}`;
-            }}
           />
         ))}
       </div>

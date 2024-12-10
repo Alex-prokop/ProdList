@@ -12,16 +12,29 @@ const ProductDetailsPage: React.FC = () => {
 
   const { items, status } = useSelector((state: RootState) => state.products);
 
-  const product = items.find((item) => item.id === parseInt(id || '0'));
+  const product = items.find((item) => item.id === Number(id));
 
   useEffect(() => {
     if (!product && status === 'idle') {
-      dispatch(loadProducts() as any);
+      dispatch(loadProducts());
     }
   }, [product, status, dispatch]);
 
+  console.log({ id, product, items, status });
+
   if (status === 'loading' || (!product && status === 'idle')) {
-    return <div className="loading">Loading...</div>;
+    return <div className="loading">Loading product details...</div>;
+  }
+
+  if (status === 'failed') {
+    return (
+      <div className="error">
+        <h2>Error Loading Product</h2>
+        <button onClick={() => navigate('/')} className="back-link">
+          ← Back to Products
+        </button>
+      </div>
+    );
   }
 
   if (!product && status === 'succeeded') {
@@ -50,7 +63,7 @@ const ProductDetailsPage: React.FC = () => {
           <h1>{product?.title}</h1>
           <p>{product?.description}</p>
           <p>
-            <strong>Price:</strong> ${product?.price.toFixed(2)}
+            <strong>Price:</strong> ${product?.price?.toFixed(2) || 'N/A'}
           </p>
         </div>
       </div>

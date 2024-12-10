@@ -1,13 +1,13 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import ProductsPage from './pages/ProductsPage';
-import ProductDetailsPage from './pages/ProductDetailsPage';
+import ProductDetailsPage from './pages/ProductDetailsPage.tsx';
 import CreateProductPage from './pages/CreateProductPage.tsx';
 import EditProductPage from './pages/EditProductPage';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/">
       <Header />
       <Routes>
         <Route path="/" element={<ProductsPage />} />
